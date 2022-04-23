@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+    background: transparent;
+    font-family: inherit;
+  }
+  a{
+    text-decoration: none;
+  }
+  a img {
+    border: none;
+  }
+  
+  button,
+  a {
+    cursor: pointer;
+    color: inherit;
+  }
+  
+  textarea {
+    resize: none;
+  }
+  
+  button,
+  textarea,
+  select {
+    appearance: none !important;
+    border-radius: 0;
+  }
+
+  /*CSS RESET IS OVER*/
+
+  #root{
+      height: 100vh;
+      width: 100%;
+      position: relative;
+      font-family: 'Pacifico', cursive;
+  }
+
+  .swiper-slide img{
+      height: 100vh;
+      width: 100%;
+      object-fit: cover;
+  }
+
+  .swiper-slide h2{
+    position: absolute;
+    top:0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    background-color: rgb(50, 55, 56);
+    color: rgb(255, 255, 255);
+}
+
+.container{
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+    background-color: gray;
+    border-radius: 5px;
+    z-index: 3;
+    opacity: 0.9;
+    filter: blur(50%);
+    box-shadow: 5px 10px 18px #131212;
+}
+
+.container form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px 10px;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container form input {
+    background-color: white;
+    height: 40px;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    padding: 0 10px;
+
+}
+.btn-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-container button{
+    width: 150px;
+    height: 50px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 25px;
+    transition: all linear 0.1s;
+}
+
+.send{
+    background-color: tomato;
+    color: white;
+}
+
+.send:hover{
+    background-color: rgb(211, 76, 53);
+}
+
+.delete {
+    border: tomato solid 2px;
+    color: white;
+}
+
