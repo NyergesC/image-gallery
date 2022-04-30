@@ -21,23 +21,25 @@ app.get("/image-list", (req,res)=>{
 })
 
 //POST METHOD
+    let jsonData = []
+    try {
+        let data = fs.readFileSync(`${dataLocation}data.json`, (err) =>{
+                if(err){
+                    console.log(err);
+                }
+
+        })
+
+      jsonData = JSON.parse(data) 
+        
+    } catch (err) {
+        console.log(err);        
+    }
 
  app.post('/', (req, res) => {
     const picture = req.files.picture;
-    const answer = {}
-   /*  const file = JSON.stringify(req.body, null, 2); */
-/*     const uploadPath = __dirname + '/../backend/data/' + `data.json`; */
-    
-    const uploads = path.join(`${__dirname}/../frontend/public/img`);
-    if(picture) {
-        picture.mv(uploads + picture.name)
-    }
-    answer.pictureName = picture.name
-    res.send(answer)
-
-    let jsonData = []
-
     const formData = req.body
+    formData.filename = picture.name
     jsonData.push(formData)
 
     fs.writeFile(`${dataLocation}data.json`, JSON.stringify(jsonData), (err) => {
@@ -45,6 +47,22 @@ app.get("/image-list", (req,res)=>{
             console.log(err);
         }
     })
+
+    const uploads = path.join(`${__dirname}/../frontend/public/img/`);
+    if(picture) {
+        console.log(uploads + picture.name);
+        picture.mv(uploads + picture.name)
+    }
+
+    res.send(formData)
+
+    console.log(formData);
+
+app.delete("/delete/:id", (req,res) => {
+     res.send('delete request')
+})
+
+
 }); 
 
 
@@ -69,5 +87,5 @@ app.post('/', (req, res) =>{
 const port = 9000;
 
 app.listen(port, ()=>{
-    console.log(`htttp://127.0.0.1:${port}`);
+    console.log(`http://127.0.0.1:${port}`);
 })
